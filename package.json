@@ -5,8 +5,8 @@
   "main": "staging.js",
   "private": true,
   "repository": {
-    "type" : "bitbucket",
-    "url" : "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
+    "type": "bitbucket",
+    "url": "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^2.18.0",
+    "debug": "^4.1.1",
     "dns-sync": "^0.1.3"
   }
 }
