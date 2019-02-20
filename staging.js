@@ -6,7 +6,7 @@ debug('staging.js Entry: %O', process.argv);
 for (i = 2; i < process.argv.length; i++) {
   debug('Extracted "%s" from the command line', process.argv[i]);
   // Get the Staging IP address of each fully qualified domain name specified and print to the console
-  console.log(getStagingIPAddress(process.argv[i]) + " " + process.argv[i]);
+  getStagingIPAddress(process.argv[i]) + " " + process.argv[i];
 };
 
 function getStagingIPAddress(hostname){
@@ -45,8 +45,18 @@ function getStagingIPAddress(hostname){
 
       debug('The Staging alias for %s is %s', hostname, stagingFQDN);
 
+      stagingFQDN = stagingFQDN.substring(0, stagingFQDN.length - 1);
+
       debug('Calling dns.resolve(%s)', stagingFQDN);
       // Resolve the Staging variant fqdn to an IP address
+
+      var dnsSync = require('dns-sync');
+
+      var stagingIPAddress = dnsSync.resolve(stagingFQDN);
+
+      console.log('%s %s', stagingIPAddress, hostname);
+
+      return stagingIPAddress;
       var stagingIPAddress = dns.resolve(stagingFQDN, function (err, addresses) {
         // *** to do *** if (err) throw err;
 
@@ -58,7 +68,7 @@ function getStagingIPAddress(hostname){
       });
 
       // Return the Staging IP address along with the original hostname formatted as a hosts file entry
-      //return stagingIPAddress + " " + hostname
+      return stagingIPAddress + " " + hostname
 
       //console.log(stagingIPAddress + " " + hostname);
     }
