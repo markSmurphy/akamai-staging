@@ -6,10 +6,8 @@ debug('staging.js Entry: %O', process.argv);
 for (i = 2; i < process.argv.length; i++) {
   debug('Extracted "%s" from the command line', process.argv[i]);
   // Get the Staging IP address of each fully qualified domain name specified and print to the console
-  getStagingIPAddress(process.argv[i]);
+  console.log(getStagingIPAddress(process.argv[i]) + " " + process.argv[i]);
 };
-
-debug('staging.js Exit');
 
 function getStagingIPAddress(hostname){
   debug('getStagingIPAddress() Entry');
@@ -55,17 +53,15 @@ function getStagingIPAddress(hostname){
         debug('DNS returned: %O', addresses);
         debug('Returning: %s', addresses[0]);
         // Return the 1st IP address
-        console.log(stagingIPAddress);
+        console.log(addresses[0]);
         return addresses[0];
       });
 
       // Return the Staging IP address along with the original hostname formatted as a hosts file entry
       //return stagingIPAddress + " " + hostname
 
-      console.log(stagingIPAddress + " " + hostname);
+      //console.log(stagingIPAddress + " " + hostname);
     }
-
-    debug('getStagingIPAddress() Exit');
   });
 
   debug('getStagingIPAddress() Exit');
