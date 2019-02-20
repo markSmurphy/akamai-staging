@@ -1,0 +1,28 @@
+{
+  "name": "getakamaistagingip",
+  "version": "0.1.0",
+  "description": "Get an Akamai Staging Network IP address for specified domain(s)",
+  "main": "staging.js",
+  "private": true,
+  "repository": {
+    "type" : "bitbucket",
+    "url" : "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "akamai",
+    "staging",
+    "ip",
+    "dns",
+    "resolve",
+    "domain"
+  ],
+  "author": "Mark Murphy",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.18.0",
+    "dns-sync": "^0.1.3"
+  }
+}
