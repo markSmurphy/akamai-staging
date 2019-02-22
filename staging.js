@@ -13,9 +13,12 @@ function getStagingIPAddress(hostname){
   debug('getStagingIPAddress() Entry');
   // Resolve the hostname to its aliases
   debug('Calling dns.resolveCname(%s)', hostname);
+
+
   dns.resolveCname(hostname, function (err, aliases) {
     if (err) {
-      debug('An error occurred: %O', err);
+      debug('An error occurred in dns.resolveCname(%s): %O', hostname, err);
+      debug('The record might not be a CNAME.');
     } else {
       debug('Processing returned aliases: %O', aliases);
 

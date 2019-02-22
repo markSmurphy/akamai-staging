@@ -1,6 +1,6 @@
 {
   "name": "getakamaistagingip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get an Akamai Staging Network IP address for specified domain(s)",
   "main": "staging.js",
   "private": true,
@@ -9,7 +9,7 @@
     "url": "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node staging.js images.asos-med ia.com test.asosservices.com api.asos.com asos.net asosapps.com test-asosglobal.com www.asos.com"
   },
   "keywords": [
     "akamai",
@@ -22,7 +22,6 @@
   "author": "Mark Murphy",
   "license": "ISC",
   "dependencies": {
-    "commander": "^2.18.0",
     "debug": "^4.1.1",
     "dns-sync": "^0.1.3"
   }
