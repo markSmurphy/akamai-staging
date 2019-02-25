@@ -19,3 +19,13 @@ TBC.
 3. Here
 
 ---
+
+## Restrictions
+
+### Apex domains are not currently supported.
+
+DNS standards do not allow a `CNAME` record in the apex (`A` or `AAAA` are the only allowed record types), and DNS providers get around this in proprietary ways.  The use of `dns.resolveCname` to get the initial alias of the hostname fails because it's not a `CNAME` record that's being returned.
+
+A resolution is being explored.
+
+---
