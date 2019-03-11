@@ -9,7 +9,7 @@
     "url": "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
-    "test": "node staging.js images.asos-med ia.com test.asosservices.com api.asos.com asos.net asosapps.com test-asosglobal.com www.asos.com"
+    "test": "node staging.js www.akamai.com www.asos.com www.bridgestone.com www.cathaypacific.com"
   },
   "keywords": [
     "akamai",
