@@ -6,4 +6,4 @@
 * `README.md` examples of debugging
 * Add comment to hosts file entry
 * Progress indicator for multiple entries
-* Test shebang
+* Test shebang `staging`
