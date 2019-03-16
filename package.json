@@ -1,18 +1,18 @@
 {
   "name": "getakamaistagingip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get an Akamai Staging Network IP address for specified domain(s)",
-  "main": "staging.js",
+  "main": "akamai-staging.js",
   "private": false,
   "bin": {
-    "staging": "./staging.js"
+    "staging": "./akamai-staging.js"
   },
   "repository": {
     "type": "bitbucket",
     "url": "https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
-    "test": "node staging.js www.akamai.com www.asos.com www.bridgestone.com www.cathaypacific.com"
+    "test": "node akamai-staging.js www.akamai.com www.asos.com www.bridgestone.com www.cathaypacific.com"
   },
   "keywords": [
     "akamai",
