@@ -6,7 +6,7 @@
   "private": true,
   "repository": {
     "type": "bitbucket",
-    "url": "git clone https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
+    "url": "https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
     "test": "node staging.js www.akamai.com www.asos.com www.bridgestone.com www.cathaypacific.com"
