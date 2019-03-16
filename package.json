@@ -3,7 +3,10 @@
   "version": "1.0.1",
   "description": "Get an Akamai Staging Network IP address for specified domain(s)",
   "main": "staging.js",
-  "private": true,
+  "private": false,
+  "bin": {
+    "staging": "./staging.js"
+  },
   "repository": {
     "type": "bitbucket",
     "url": "https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
@@ -13,6 +16,7 @@
   },
   "keywords": [
     "akamai",
+    "cdn",
     "staging",
     "ip",
     "dns",
