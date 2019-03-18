@@ -18,7 +18,8 @@ function getStagingIPAddress(hostname){
   dns.resolveCname(hostname, function (err, aliases) {
     if (err) {
       debug('An error occurred in dns.resolveCname(%s): %O', hostname, err);
-      debug('The record might not be a CNAME.');
+      debug('No aliases returned. The record "%s" might not be a CNAME.', hostname);
+      console.log('# %s did not resolve to a CNAME record', hostname);
     } else {
       debug('Processing returned aliases: %O', aliases);
 
@@ -52,28 +53,21 @@ function getStagingIPAddress(hostname){
 
       debug('Calling dns.resolve(%s)', stagingFQDN);
       // Resolve the Staging variant fqdn to an IP address
-
       var dnsSync = require('dns-sync');
-
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
 
-      console.log('%s %s', stagingIPAddress, hostname);
+      // Workout a sting buffer length
+      let entryLength = stagingIPAddress.length + hostname.length;
+      let comment = '#Akamai Staging variant of ' + alias;
+      const offset = 50;
+      let bufferLength = 5;
+      if(offset > entryLength + 1) {
+        bufferLength = offset - entryLength;
+      }
 
-      return stagingIPAddress;
-      var stagingIPAddress = dns.resolve(stagingFQDN, function (err, addresses) {
-        // *** to do *** if (err) throw err;
+      console.log('%s %s %s %s', stagingIPAddress, hostname, " ".repeat(bufferLength), comment);
 
-        debug('DNS returned: %O', addresses);
-        debug('Returning: %s', addresses[0]);
-        // Return the 1st IP address
-        console.log(addresses[0]);
-        return addresses[0];
-      });
-
-      // Return the Staging IP address along with the original hostname formatted as a hosts file entry
-      return stagingIPAddress + " " + hostname
-
-      //console.log(stagingIPAddress + " " + hostname);
+      //return stagingIPAddress;
     }
   });
 

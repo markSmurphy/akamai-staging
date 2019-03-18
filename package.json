@@ -12,7 +12,7 @@
     "url": "https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
   },
   "scripts": {
-    "test": "node akamai-staging.js www.akamai.com www.asos.com www.bridgestone.com www.cathaypacific.com"
+    "test": "node akamai-staging.js www.akamai.com www.asos.com www.bridgestone.com www.dominos.co.uk www.google.com"
   },
   "keywords": [
     "akamai",
