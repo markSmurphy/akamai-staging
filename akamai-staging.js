@@ -1,6 +1,9 @@
 var debug = require('debug')('staging');
 var dns = require('dns');
 
+// Print a platform agnostic newline character first. This particularly helps when output is appended to a text file
+console.log (require('os').EOL);
+
 debug('staging.js Entry: %O', process.argv);
 // Loop through command line parameters.  Expecting 'staging.js fqdn [fqdn [fqdn] ... ]'
 for (i = 2; i < process.argv.length; i++) {
@@ -19,7 +22,7 @@ function getStagingIPAddress(hostname){
     if (err) {
       debug('An error occurred in dns.resolveCname(%s): %O', hostname, err);
       debug('No aliases returned. The record "%s" might not be a CNAME.', hostname);
-      console.log('# %s did not resolve to a CNAME record', hostname);
+      console.log('# [%s] did not resolve to a CNAME record', hostname);
     } else {
       debug('Processing returned aliases: %O', aliases);
 
@@ -56,15 +59,16 @@ function getStagingIPAddress(hostname){
       var dnsSync = require('dns-sync');
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
 
-      // Workout a sting buffer length
+      // Workout a sting buffer length to tidy up comments' alignment
       let entryLength = stagingIPAddress.length + hostname.length;
-      let comment = '#Akamai Staging variant of ' + alias;
+      let comment = '#Akamai Staging variant of [' + alias +']';
       const offset = 50;
       let bufferLength = 5;
       if(offset > entryLength + 1) {
         bufferLength = offset - entryLength;
       }
 
+      // output Staging IP entry in hosts file format
       console.log('%s %s %s %s', stagingIPAddress, hostname, " ".repeat(bufferLength), comment);
 
       //return stagingIPAddress;
