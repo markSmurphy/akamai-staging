@@ -21,10 +21,12 @@
     "ip",
     "dns",
     "resolve",
-    "domain"
+    "domain",
+    "fqdn",
+    "cli"
   ],
   "author": "Mark Murphy",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "debug": "^4.1.1",
     "dns-sync": "^0.1.3"
