@@ -1,5 +1,5 @@
 {
-  "name": "getakamaistagingip",
+  "name": "akamai-staging",
   "version": "1.0.0",
   "description": "A command line utility to locate an Akamai Staging network IP address for one or more domains",
   "main": "akamai-staging.js",
@@ -8,8 +8,8 @@
     "staging": "./akamai-staging.js"
   },
   "repository": {
-    "type": "bitbucket",
-    "url": "https://MarkSMurphy@bitbucket.org/MarkSMurphy/staging.git"
+    "type": "git",
+    "url": "git+https://github.com/MarkSMurphy/akamai-staging.git"
   },
   "scripts": {
     "test": "node akamai-staging.js www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk www.google.com"
@@ -27,6 +27,10 @@
   ],
   "author": "Mark Murphy",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarkSMurphy/akamai-staging/issues"
+  },
+  "homepage": "https://github.com/MarkSMurphy/akamai-staging#readme",
   "dependencies": {
     "debug": "^4.1.1",
     "dns-sync": "^0.1.3"
