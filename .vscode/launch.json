@@ -8,8 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Lookup single host",
-            "program": "${workspaceFolder}\\staging.js",
-            "args": ["www.asos.com"],
+            "program": "${workspaceFolder}\\akamai-staging.js",
+            "args": ["www.akamai.com"],
             "env": {
                 "debug" : "staging"
             }
@@ -19,11 +19,14 @@
             "type": "node",
             "request": "launch",
             "name": "Lookup multiple hosts",
-            "program": "${workspaceFolder}\\staging.js",
+            "program": "${workspaceFolder}\\akamai-staging.js",
             "args": [
+                "www.akamai.com",
                 "www.asos.com",
-                "my.asos.com",
-                "secure.asos.com"
+                "secure.asos.com",
+                "www.bridgestone.com",
+                "www.colorcon.com",
+                "www.dominos.co.uk"
             ],
             "env": {
                 "debug" : "staging"
