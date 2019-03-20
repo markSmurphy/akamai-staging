@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var debug = require('debug')('staging');
 var dns = require('dns');
 

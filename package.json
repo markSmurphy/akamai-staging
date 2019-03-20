@@ -1,11 +1,12 @@
 {
   "name": "akamai-staging",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A command line utility to locate an Akamai Staging network IP address for one or more domains",
   "main": "akamai-staging.js",
   "private": false,
+  "preferGlobal": true,
   "bin": {
-    "staging": "node ./akamai-staging.js"
+    "staging": "./akamai-staging.js"
   },
   "repository": {
     "type": "git",
