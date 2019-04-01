@@ -1,5 +1,9 @@
 # akamai-staging
 
+## Quick Start
+
+![`npm -g install akamai-staging` & `staging [domain]`](https://user-images.githubusercontent.com/9842107/55331841-0fdff180-548c-11e9-8108-e2be8cb0d024.gif)
+
 ## Overview
 
 **A command line utility to locate an Akamai Staging network IP address for one or more domains.**
@@ -28,7 +32,7 @@ npm install -g akamai-staging
 
 ## Usage
 
-`node akamai-staging domain [domain [domain] ...]`
+`staging domain [domain [domain] ...]`
 
 ---
 
@@ -36,10 +40,10 @@ npm install -g akamai-staging
 
 ### A single domain
 
-`node akamai-staging www.akamai.com`
+`staging www.akamai.com`
 
 ```text
-C:\>node akamai-staging www.akamai.com
+C:\>staging www.akamai.com
 
 23.195.136.39 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 
@@ -49,10 +53,10 @@ C:\>node akamai-staging www.akamai.com
 
 If your front-end consists of multiple domains, you may need to point more than one to the **Staging** network.  You can pass multiple domains, separated by `spaces`, via the command line:
 
-`node akamai-staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk`
+`staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk`
 
 ```text
-C:\>node akamai-staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk
+C:\>staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk
 
 23.198.85.168 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 23.41.222.21 www.asos.com                            #Akamai Staging variant of [ev.prod.asos.com.edgekey.net]
@@ -71,7 +75,7 @@ Why not redirect `stdout` to append the `hosts` file, seeing as you're going to 
 #### Windows (as local admin)
 
 ```text
-C:\>node akamai-staging.js www.akamai.com >> %systemroot%\system32\drivers\etc\hosts
+C:\>staging.js www.akamai.com >> %systemroot%\system32\drivers\etc\hosts
 
 C:\>type %systemroot%\system32\drivers\etc\hosts
 # Copyright (c) 1993-2009 Microsoft Corp.
@@ -106,7 +110,7 @@ C:\>▄
 #### Linux (as root)
 
 ```text
-root@LinuxMint-VirtualBox:~$ node akamai-staging www.akamai.com >> /etc/hosts
+root@LinuxMint-VirtualBox:~$ staging www.akamai.com >> /etc/hosts
 root@LinuxMint-VirtualBox:~$ cat /etc/hosts
 127.0.0.1    localhost
 127.0.1.1    LinuxMint-VirtualBox
@@ -132,13 +136,13 @@ root@LinuxMint-VirtualBox:~$ █
 
 ```text
 set debug=staging
-node akamai-staging [domain]
+staging [domain]
 ```
 
 ### Linux
 
 ```text
-DEBUG=staging node akamai-staging [domain]
+DEBUG=staging staging [domain]
 ```
 
 ### Powershell
