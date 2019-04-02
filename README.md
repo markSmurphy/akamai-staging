@@ -2,7 +2,17 @@
 
 ## Quick Start
 
-![`npm -g install akamai-staging` & `staging [domain]`](https://user-images.githubusercontent.com/9842107/55331841-0fdff180-548c-11e9-8108-e2be8cb0d024.gif)
+- Install globally using `npm install -g akamai-staging`
+- Run `staging [domain]`
+- Append the output to your local `hosts` file
+
+### Platform - Linux
+
+![`sudo npm install -g akamai-staging` & `staging [domain]`](https://user-images.githubusercontent.com/9842107/55331841-0fdff180-548c-11e9-8108-e2be8cb0d024.gif)
+
+### Platform - Windows
+
+![`npm install -g akamai-staging` & `staging [domain]`](https://user-images.githubusercontent.com/9842107/55395107-d5805e00-5538-11e9-89c9-bb030e1a76f5.gif)
 
 ## Overview
 
