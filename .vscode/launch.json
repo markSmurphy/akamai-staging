@@ -31,6 +31,17 @@
             "env": {
                 "debug" : "staging"
             }
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Display help screen (--help)",
+            "program": "${workspaceFolder}\\akamai-staging.js",
+            "args": ["--help"],
+            "env": {
+                "debug" : "staging"
+            }
         }
     ]
 }
