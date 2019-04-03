@@ -33,11 +33,12 @@ if ((process.argv.length == 2) || (process.argv[2].toLowerCase() == "-h") || (pr
   console.log(endOfLine);
 
   // Loop through command line parameters.  Expecting 'staging.js fqdn [fqdn [fqdn] ... ]'
+  var i = 0;
   for (i = 2; i < process.argv.length; i++) {
     debug('Extracted "%s" from the command line', process.argv[i]);
     // Get the Staging IP address of each fully qualified domain name specified and print to the console
-    getStagingIPAddress(process.argv[i]) + " " + process.argv[i];
-  };
+    getStagingIPAddress(process.argv[i]);
+  }
 }
 
 function getStagingIPAddress(hostname){
@@ -55,7 +56,7 @@ function getStagingIPAddress(hostname){
       debug('Processing returned aliases: %O', aliases);
 
       // Pick the 1st alias
-      debug('Using the 1st alias "%s"', aliases[0])
+      debug('Using the 1st alias "%s"', aliases[0]);
       var alias = aliases[0];
 
       // Break down the alias hostname into its constituent parts/segments
@@ -88,10 +89,10 @@ function getStagingIPAddress(hostname){
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
 
       // Workout a sting buffer length to tidy up comments' alignment
-      let entryLength = stagingIPAddress.length + hostname.length;
-      let comment = '#Akamai Staging variant of [' + alias +']';
+      var entryLength = stagingIPAddress.length + hostname.length;
+      var comment = '#Akamai Staging variant of [' + alias +']';
       const offset = 50;
-      let bufferLength = 5;
+      var bufferLength = 5;
       if(offset > entryLength + 1) {
         bufferLength = offset - entryLength;
       }
