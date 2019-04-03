@@ -18,13 +18,13 @@ if ((process.argv.length == 2) || (process.argv[2].toLowerCase() == "-h") || (pr
   console.log(endOfLine);
   console.log('Returns an Akamai Staging network IP address for one or more domains.'.italic);
   console.log(endOfLine);
-  console.log('VERSION'.grey);
+  console.log('VERSION:'.grey);
   console.log('   ' + package.version.bold);
   console.log(endOfLine);
-  console.log('SYNTAX'.grey);
+  console.log('USAGE:'.grey);
   console.log('   ' + 'staging domain [domain [domain] ...]'.bold);
   console.log(endOfLine);
-  console.log('EXAMPLE'.grey);
+  console.log('EXAMPLE:'.grey);
   console.log('   staging www.akamai.com control.akamai.com');
 
 } else {
