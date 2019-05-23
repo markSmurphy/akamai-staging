@@ -88,19 +88,26 @@ function getStagingIPAddress(hostname){
       var dnsSync = require('dns-sync');
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
 
-      // Workout a sting buffer length to tidy up comments' alignment
-      var entryLength = stagingIPAddress.length + hostname.length;
-      var comment = '#Akamai Staging variant of [' + alias +']';
-      const offset = 50;
-      var bufferLength = 5;
-      if(offset > entryLength + 1) {
-        bufferLength = offset - entryLength;
+      if (stagingIPAddress == undefined){
+
+        // probably not an Akamai'sed domain
+        debug('The variable [stagingIPAddress] is null or undefined after attempting to resolve [%s]', stagingFQDN);
+        console.log('[%s] did not resolve to an IP address. [%s] is probably not served by Akamai', stagingFQDN, hostname);
+
+      } else {
+
+        // Workout a string buffer length to tidy up comments' alignment
+        var entryLength = stagingIPAddress.length + hostname.length;
+        var comment = '#Akamai Staging variant of [' + alias +']';
+        const offset = 50;
+        var bufferLength = 5;
+        if(offset > entryLength + 1) {
+          bufferLength = offset - entryLength;
+        }
+
+        // output Staging IP entry in hosts file format
+        console.log('%s %s %s %s', stagingIPAddress, hostname, " ".repeat(bufferLength), comment);
       }
-
-      // output Staging IP entry in hosts file format
-      console.log('%s %s %s %s', stagingIPAddress, hostname, " ".repeat(bufferLength), comment);
-
-      //return stagingIPAddress;
     }
   });
 
