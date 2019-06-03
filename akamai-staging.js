@@ -1,34 +1,28 @@
 #!/usr/bin/env node
-var debug = require('debug')('staging');
-var dns = require('dns');
+
+// verbose logging
+const debug = require('debug')('staging');
+
+// Synchronous DNS resolver
+const dns = require('dns');
+
 // Platform independent end-of-line character
-var endOfLine = require('os').EOL;
+const endOfLine = require('os').EOL;
 
-debug('staging.js Entry: %O', process.argv);
+// command line options parser
+var argv = require('yargs').argv;
 
-// Check for 'help' command line parameters, or no parameters at all
-if ((process.argv.length == 2) || (process.argv[2].toLowerCase() == "-h") || (process.argv[2].toLowerCase() == "--help")) {
-  const colours = require('colors');
-  const package = require('./package.json');
+debug('[%s] started: %O', __filename, process.argv);
 
-  //display help screen
-  console.log('\u2726 [akamai-staging]'.cyan);
-  console.log('Read the docs: '.green + 'https://github.com/MarkSMurphy/akamai-staging#readme');
-  console.log('Support & bugs: '.magenta + 'https://github.com/MarkSMurphy/akamai-staging/issues');
-  console.log(endOfLine);
-  console.log('Returns an Akamai Staging network IP address for one or more domains.'.italic);
-  console.log(endOfLine);
-  console.log('VERSION:'.grey);
-  console.log('   ' + package.version.bold);
-  console.log(endOfLine);
-  console.log('USAGE:'.grey);
-  console.log('   ' + 'staging domain [domain [domain] ...]'.bold);
-  console.log(endOfLine);
-  console.log('EXAMPLE:'.grey);
-  console.log('   staging www.akamai.com control.akamai.com');
-
+if ((process.argv.length == 2) || (argv.help)) {
+  // Show help screen
+  const help = require('./help');
+  help.helpScreen();
+} else if (argv.platform) {
+  // Show platform information
+  const help = require('./help');
+  help.platformSpecific();
 } else {
-
   // Print a platform agnostic newline character first. This particularly helps when output is appended to a text file
   console.log(endOfLine);
 
