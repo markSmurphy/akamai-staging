@@ -3,38 +3,44 @@
 // verbose logging
 const debug = require('debug')('staging');
 
-// Synchronous DNS resolver
-const dns = require('dns');
-
 // Platform independent end-of-line character
 const endOfLine = require('os').EOL;
 
-// command line options parser
-var argv = require('yargs')
-  .help(false)
-  .argv;
+// Synchronous DNS resolver
+const dns = require('dns');
 
-debug('[%s] started: %O', __filename, process.argv);
+try {
 
-if ((process.argv.length == 2) || (argv.help)) {
-  // Show help screen
-  const help = require('./help');
-  help.helpScreen();
-} else if ((argv.platform) || (argv.info)) {
-  // Show platform information
-  const help = require('./help');
-  help.platformSpecific();
-} else {
-  // Print a platform agnostic newline character first. This particularly helps when output is appended to a text file
-  console.log(endOfLine);
+  debug('[%s] started: %O', __filename, process.argv);
 
-  // Loop through command line parameters.  Expecting 'staging.js fqdn [fqdn [fqdn] ... ]'
-  var i = 0;
-  for (i = 2; i < process.argv.length; i++) {
-    debug('Extracted "%s" from the command line', process.argv[i]);
-    // Get the Staging IP address of each fully qualified domain name specified and print to the console
-    getStagingIPAddress(process.argv[i]);
+  // command line options parser
+  var argv = require('yargs')
+    .help(false)
+    .argv;
+
+  if ((process.argv.length == 2) || (argv.help)) {
+    // Show help screen
+    const help = require('./help');
+    help.helpScreen();
+  } else if ((argv.platform) || (argv.info)) {
+    // Show platform information
+    const help = require('./help');
+    help.platformSpecific();
+  } else {
+    // Print a platform agnostic newline character first. This particularly helps when output is appended to a text file
+    console.log(endOfLine);
+
+    // Loop through command line parameters.  Expecting 'staging.js fqdn [fqdn [fqdn] ... ]'
+    var i = 0;
+    for (i = 2; i < process.argv.length; i++) {
+      debug('Extracted "%s" from the command line', process.argv[i]);
+      // Get the Staging IP address of each fully qualified domain name specified and print to the console
+      getStagingIPAddress(process.argv[i]);
+    }
   }
+}
+catch (e) {
+  console.log('An unexpected error occurred: %s', e);
 }
 
 function getStagingIPAddress(hostname){
