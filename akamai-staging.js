@@ -90,12 +90,13 @@ function getStagingIPAddress(hostname){
       var dnsSync = require('dns-sync');
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
 
+      debug('dnsSync.resolve() returned a value of type [%s] with a value of [%O]', typeof(stagingIPAddress), stagingIPAddress);
+
       if (stagingIPAddress == undefined){
 
         // probably not an Akamai'sed domain
-        debug('The variable [stagingIPAddress] is null or undefined after attempting to resolve [%s]', stagingFQDN);
+        debug('The variable [stagingIPAddress] is either null or undefined after attempting to resolve [%s]', stagingFQDN);
         console.log('[%s] did not resolve to an IP address. [%s] is probably not served by Akamai', stagingFQDN, hostname);
-
       } else {
 
         // Workout a string buffer length to tidy up comments' alignment
