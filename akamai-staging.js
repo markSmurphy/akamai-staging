@@ -52,6 +52,11 @@ function getStagingIPAddress(hostname){
       stagingFQDN = stagingFQDN.substring(0, stagingFQDN.length - 1);
 
       debug('Calling dns.resolve(%s)', stagingFQDN);
+
+      // *** TO DO ***//
+      // Exception occurs here when environment variable is set to '*'; SET DEBUG=*
+
+
       // Resolve the Staging variant fqdn to an IP address
       var dnsSync = require('dns-sync');
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
@@ -104,7 +109,7 @@ try {
     // Print a platform agnostic newline character first. This particularly helps when output is appended to a text file
     console.log(endOfLine);
 
-    // Loop through command line parameters.  Expecting 'staging.js fqdn [fqdn [fqdn] ... ]'
+    // Loop through command line parameters.  Expecting 'akamai-staging.js fqdn [fqdn [fqdn] ... ]'
     var i = 0;
     for (i = 2; i < process.argv.length; i++) {
       debug('Extracted "%s" from the command line', process.argv[i]);
