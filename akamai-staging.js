@@ -53,10 +53,6 @@ function getStagingIPAddress(hostname){
 
       debug('Calling dns.resolve(%s)', stagingFQDN);
 
-      // *** TO DO ***//
-      // Exception occurs here when environment variable is set to '*'; SET DEBUG=*
-
-
       // Resolve the Staging variant fqdn to an IP address
       var dnsSync = require('dns-sync');
       var stagingIPAddress = dnsSync.resolve(stagingFQDN);
