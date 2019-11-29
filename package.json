@@ -1,6 +1,6 @@
 {
   "name": "akamai-staging",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A command line utility to locate an Akamai Staging network IP address for one or more domains",
   "main": "akamai-staging.js",
   "private": false,
@@ -36,6 +36,6 @@
     "colors": "^1.4.0",
     "debug": "^4.1.1",
     "dns-sync": "^0.2.0",
-    "yargs": "^14.2.2"
+    "yargs": "^15.0.2"
   }
 }
