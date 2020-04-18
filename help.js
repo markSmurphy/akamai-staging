@@ -1,7 +1,9 @@
 module.exports = {
     platformSpecific: function () {
         const os = require('os');
-        const colours = require('colors');
+
+        // console colours
+        const chalk = require('chalk');
 
         var hostsFile = '';
         var cmdFlushDNS = '';
@@ -25,38 +27,63 @@ module.exports = {
         }
 
         console.log(os.EOL);
-        console.log('Hostname:                   '.yellow + os.hostname());
-        console.log('Platform:                   '.yellow + os.platform());
-        console.log('"hosts" file location:      '.yellow + hostsFile);
-        console.log('Command to flush DNS cache: '.yellow + cmdFlushDNS);
+        console.log(chalk.yellow('Hostname:                   ') + os.hostname());
+        console.log(chalk.yellow('Platform:                   ') + os.platform());
+        console.log(chalk.yellow('"hosts" file location:      ') + hostsFile);
+        console.log(chalk.yellow('Command to flush DNS cache: ') + cmdFlushDNS);
         console.log(os.EOL);
     },
-    helpScreen: function () {
+    helpScreen: function (verbose) {
         // Platform independent end-of-line character
-        var endOfLine = require('os').EOL;
+        const endOfLine = require('os').EOL;
         // console colours
-        const colours = require('colors');
+        const chalk = require('chalk');
         // parse package.json for the version number
         const package = require('./package.json');
 
-        //display help screen
-        console.log('akamai-staging [a.k.a staging]'.cyan);
-        console.log('Read the docs: '.green + 'https://github.com/MarkSMurphy/akamai-staging#readme');
-        console.log('Support & bugs: '.magenta + 'https://github.com/MarkSMurphy/akamai-staging/issues');
+        // Display help screen
+        console.log(chalk.blue(package.name));
+        console.log(chalk.green('Read the docs: ') + package.homepage);
+        console.log(chalk.magenta('Support & bugs: ') + package.bugs.url);
         console.log(endOfLine);
-        console.log('Returns an Akamai Staging network IP address for one or more domains.'.italic);
+        console.log(chalk.grey('DESCRIPTION:'));
+        console.log(chalk.italic('   %s'), package.description);
         console.log(endOfLine);
-        console.log('VERSION:'.grey);
+        console.log(chalk.grey('VERSION:'));
         console.log('   ' + package.version);
         console.log(endOfLine);
-        console.log('USAGE:'.grey);
-        console.log('   ' + 'staging domain [domain [domain] ...]     ' + 'Lookup Staging IP address for one or more domains.'.grey);
-        console.log('   ' + 'staging --info                           ' + 'Display platform specific information.'.grey);
-        console.log('   ' + 'staging --version                        ' + 'Display version number.'.grey);
-        console.log('   ' + 'staging --help                           ' + 'Display this help.'.grey);
+        console.log(chalk.grey('USAGE:'));
+        console.log('   ' + 'staging domain [domain [domain] ...]     ');
         console.log(endOfLine);
-        console.log('EXAMPLE:'.grey);
+        console.log(chalk.grey('OPTIONS:'));
+        console.log('   ' + 'domain [domain [domain] ...]     ' + chalk.grey('Lookup Staging IP address for one or more domains'));
+        console.log('   ' + '--info                           ' + chalk.grey('Display platform specific DNS information'));
+        console.log('   ' + '--version                        ' + chalk.grey('Display version number'));
+        console.log('   ' + '--help                           ' + chalk.grey('Display this help'));
+        console.log(endOfLine);
+        console.log(chalk.grey('EXAMPLE:'));
         console.log('   staging www.akamai.com control.akamai.com');
+        // Display more information if `verbose` is enabled
+        if (verbose) {
+            const os = require('os');
+            const utils = require('./utils');
+            console.log(endOfLine);
+            console.log(chalk.grey('SYSTEM:'));
+            console.log('   Hostname           ' + chalk.blue(os.hostname()));
+            console.log('   Uptime             ' + chalk.blue(utils.secondsToHms(os.uptime())));
+            console.log('   Platform           ' + chalk.blue(os.platform()));
+            console.log('   O/S                ' + chalk.blue(os.type()));
+            console.log('   O/S release        ' + chalk.blue(os.release()));
+            console.log('   CPU architecture   ' + chalk.blue(os.arch()));
+            console.log('   CPU cores          ' + chalk.blue(os.cpus().length));
+            console.log('   CPU model          ' + chalk.blue(os.cpus()[0].model));
+            console.log('   Free memory        ' + chalk.blue(utils.formatBytes(os.freemem())));
+            console.log('   Total memory       ' + chalk.blue(utils.formatBytes(os.totalmem())));
+            console.log('   Home directory     ' + chalk.blue(os.homedir()));
+            console.log('   Temp directory     ' + chalk.blue(os.tmpdir()));
+            console.log('   Console width      ' + chalk.blue(process.stdout.columns));
+            console.log('   Console height     ' + chalk.blue(process.stdout.rows));
+            console.log('   Colour support     ' + chalk.blue(utils.getColourLevelDesc()));
+        }
     }
-  };
-
+};
