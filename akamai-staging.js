@@ -96,7 +96,7 @@ try {
   if ((process.argv.length === 2) || (argv.help)) {
     // Show help screen
     const help = require('./help');
-    help.helpScreen();
+    help.helpScreen(argv.verbose);
   } else if ((argv.platform) || (argv.info)) {
     // Show platform information
     const help = require('./help');
