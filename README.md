@@ -2,6 +2,7 @@
 
 ![Version](https://img.shields.io/npm/v/akamai-staging.svg?style=plastic)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/77426eb3f96e4e8d9cc4048e4b13bc1e)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=MarkSMurphy/staging&amp;utm_campaign=Badge_Grade)
+[![Known Vulnerabilities](https://snyk.io/test/npm/akamai-staging/badge.svg)](https://snyk.io/test/npm/akamai-staging)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/akamai-staging.svg?style=plastic)
 ![Downloads](https://img.shields.io/npm/dm/akamai-staging.svg?style=plastic)
 ![Licence](https://img.shields.io/npm/l/akamai-staging.svg?style=plastic)
