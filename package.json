@@ -34,7 +34,7 @@
   "homepage": "https://github.com/MarkSMurphy/akamai-staging#readme",
   "dependencies": {
     "chalk": "^4.0.0",
-    "debug": "^4.1.1",
+    "debug": "^4.2.0",
     "dns-sync": "^0.2.1",
     "yargs": "^15.3.1"
   },
