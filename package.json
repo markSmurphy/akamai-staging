@@ -36,7 +36,7 @@
     "chalk": "^4.0.0",
     "debug": "^4.2.0",
     "dns-sync": "^0.2.1",
-    "yargs": "^16.0.3"
+    "yargs": "^16.1.0"
   },
   "devDependencies": {}
 }
