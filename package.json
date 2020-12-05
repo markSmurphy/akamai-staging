@@ -8,6 +8,9 @@
   "bin": {
     "staging": "./akamai-staging.js"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarkSMurphy/akamai-staging.git"
