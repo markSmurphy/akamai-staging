@@ -9,7 +9,8 @@ const endOfLine = require('os').EOL;
 // Synchronous DNS resolver
 const dns = require('dns');
 
-function getStagingIPAddress(hostname){
+function getStagingIPAddress(origHost, hostname){
+  hostname = hostname || origHost;
   debug('getStagingIPAddress() Entry');
   // Resolve the hostname to its aliases
   debug('Calling dns.resolveCname(%s)', hostname);
@@ -47,7 +48,7 @@ function getStagingIPAddress(hostname){
         stagingFQDN = stagingFQDN + element + '.';
       });
 
-      debug('The Staging alias for %s is %s', hostname, stagingFQDN);
+      debug('The Staging alias for %s is %s', origHost, stagingFQDN);
 
       stagingFQDN = stagingFQDN.substring(0, stagingFQDN.length - 1);
 
@@ -61,13 +62,14 @@ function getStagingIPAddress(hostname){
 
       if (stagingIPAddress === null){
 
-        // probably not an Akamai'sed domain
+        //Either not an Akamai'sed domain, or there are more links in the CNAME chain.
         debug('The variable [stagingIPAddress] is either null or undefined after attempting to resolve [%s]', stagingFQDN);
-        console.log('[%s] did not resolve to an IP address. [%s] is probably not served by Akamai', stagingFQDN, hostname);
+        // Follow the cname chain
+        getStagingIPAddress(origHost, alias);
       } else {
 
         // Workout a string buffer length to tidy up comments' alignment
-        var entryLength = stagingIPAddress.length + hostname.length;
+        var entryLength = stagingIPAddress.length + origHost.length;
         var comment = '#Akamai Staging variant of [' + alias +']';
         const offset = 50;
         var bufferLength = 5;
@@ -76,7 +78,7 @@ function getStagingIPAddress(hostname){
         }
 
         // output Staging IP entry in hosts file format
-        console.log('%s %s %s %s', stagingIPAddress, hostname, ' '.repeat(bufferLength), comment);
+        console.log('%s %s %s %s', stagingIPAddress, origHost, ' '.repeat(bufferLength), comment);
       }
     }
   });
