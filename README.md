@@ -180,3 +180,9 @@ DNS standards do not allow a `CNAME` record in the apex (`A` or `AAAA` are the o
 A resolution is being explored.
 
 ---
+
+## Change Log
+
+The `CHANGELOG.md` can be found [here](./CHANGELOG.md)
+
+---
