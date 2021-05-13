@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.9] - May 13<sup>th</sup> 2021
+## [v1.1.9] - May 13<sup>th</sup> 2021
 
 ### Changed
 
