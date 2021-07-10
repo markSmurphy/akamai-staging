@@ -1,6 +1,6 @@
 {
   "name": "akamai-staging",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "A command line utility to locate an Akamai Staging network IP address for one or more domains",
   "main": "akamai-staging.js",
   "private": false,
@@ -9,7 +9,7 @@
     "staging": "./akamai-staging.js"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "repository": {
     "type": "git",
@@ -37,10 +37,8 @@
   "homepage": "https://github.com/MarkSMurphy/akamai-staging#readme",
   "dependencies": {
     "chalk": "^4.1.1",
-    "debug": "^4.3.1",
+    "debug": "^4.3.2",
     "dns-sync": "^0.2.1",
-    "supports-color": "^8.1.1",
-    "yargs": "^16.2.0"
-  },
-  "devDependencies": {}
+    "yargs": "^17.0.1"
+  }
 }
