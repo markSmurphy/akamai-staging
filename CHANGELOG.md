@@ -1,6 +1,6 @@
 # Changelog
 
-## [v2.0.0] - MMM DD<sup>th</sup> 2021
+## [v2.0.0] - July 14<sup>th</sup> 2021
 
 ### New Features
 

@@ -13,14 +13,6 @@
 - Run `staging [domain]`
 - Append the output to your local `hosts` file
 
-### Platform - Linux
-
-![`sudo npm install -g akamai-staging` & `staging [domain]`](https://marksmurphy.github.io/img/staging-linux.gif)
-
-### Platform - Windows
-
-![`npm install -g akamai-staging` & `staging [domain]`](https://marksmurphy.github.io/img/staging-windows.gif)
-
 ## Overview
 
 **A command line utility to locate an Akamai Staging network IP address for one or more domains.**
@@ -41,7 +33,7 @@ This utility aids that process by accepting one or more fully qualified domain n
 
 ## Installation
 
-```text
+```bash
 npm install -g akamai-staging
 ```
 
@@ -59,29 +51,31 @@ npm install -g akamai-staging
 
 `staging www.akamai.com`
 
-```text
+```bash
 C:\>staging www.akamai.com
 
-23.195.136.39 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
+104.82.168.181 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 
 ```
+
+![A single domain](https://marksmurphy.github.io/img/akamai-staging.single-domain.gif)
 
 ### Multiple domains
 
 If your front-end consists of multiple domains, you may need to point more than one to the **Staging** network.  You can pass multiple domains, separated by `spaces`, via the command line:
 
-`staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk`
+`staging www.asos.com api.asos.com my.asos.com`
 
-```text
-C:\>staging www.akamai.com www.asos.com www.bridgestone.com www.colorcon.com www.dominos.co.uk
+```bash
+C:\>staging www.asos.com api.asos.com my.asos.com
 
-23.198.85.168 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
-23.41.222.21 www.asos.com                            #Akamai Staging variant of [ev.prod.asos.com.edgekey.net]
-23.44.116.103 www.bridgestone.com                    #Akamai Staging variant of [www.bridgestone.com.edgekey.net]
-23.44.121.71 www.colorcon.com                        #Akamai Staging variant of [www.colorcon.com.edgekey.net]
-23.44.114.227 www.dominos.co.uk                      #Akamai Staging variant of [www.dominos.co.uk.edgekey.net]
+23.50.57.68 www.asos.com                             #Akamai Staging variant of [snir.www.asos.com.v4.edgekey.net]
+23.50.57.240 api.asos.com                            #Akamai Staging variant of [snir.asos.com.v4.edgekey.net]
+23.50.57.68 my.asos.com                              #Akamai Staging variant of [snir.www.asos.com.v4.edgekey.net]
 
 ```
+
+![Multiple domains](https://marksmurphy.github.io/img/akamai-staging.multiple-domains.gif)
 
 ### Redirecting output to `hosts` file
 
@@ -90,6 +84,8 @@ Why not redirect `stdout` to append the `hosts` file, seeing as you're going to 
 *NB* **you may have flush your O/S's resolver cache, and flush your browser DNS cache before new `hosts` entry is recognised**
 
 #### Windows (as local admin)
+
+⚠ Make sure you use a double greater-than redirect `>>` to *append* to the target file; using only one will replace the target file and nuke your current `hosts` file.
 
 ```text
 C:\>staging.js www.akamai.com >> %systemroot%\system32\drivers\etc\hosts
@@ -126,8 +122,19 @@ C:\>▄
 
 #### Linux (as root)
 
-```text
-root@LinuxMint-VirtualBox:~$ staging www.akamai.com >> /etc/hosts
+#### Error reporting and redirection / piping
+
+All hosts file entries and staging IP addresses are output to `stdout` while all errors are output to `stderr`.
+This means that if you use the redirection approach [above](#redirecting-output-to-hosts-file), successful staging IP lookups will be written to the target file while errors appear in the console.
+
+![Redirect to a file](https://marksmurphy.github.io/img/akamai-staging.redirect-to-file.gif)
+
+You can redirect them individually by using the notation `1>` to direct `stdout` and `2>` to redirect `stderr` somewhere else.
+
+*Note*: All errors are printed with a preceeding hash character `#`, which denotes a *comment* in the `hosts` file. So, if you wish, you could redirect both `stdout` and `stderr` to the target file without it compromising the `hosts` file structure.
+
+```bash
+root@LinuxMint-VirtualBox:~$ sudo staging www.akamai.com >> /etc/hosts
 root@LinuxMint-VirtualBox:~$ cat /etc/hosts
 127.0.0.1    localhost
 127.0.1.1    LinuxMint-VirtualBox
@@ -151,20 +158,20 @@ root@LinuxMint-VirtualBox:~$ █
 
 ### Windows
 
-```text
+```bash
 set debug=staging
 staging [domain]
 ```
 
 ### Linux
 
-```text
+```bash
 DEBUG=staging staging [domain]
 ```
 
 ### Powershell
 
-```text
+```bash
 $env:debug="staging"
 node akamai-staging [domain]
 ```
