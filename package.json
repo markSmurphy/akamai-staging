@@ -27,7 +27,8 @@
     "resolve",
     "domain",
     "fqdn",
-    "cli"
+    "cli",
+    "DNS"
   ],
   "author": "Mark Murphy",
   "license": "MIT",
@@ -38,7 +39,8 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "debug": "^4.3.2",
-    "dns-sync": "^0.2.1",
+    "multimatch": "^5.0.0",
+    "native-dns-multisocket": "^0.7.0",
     "yargs": "^17.0.1"
   }
 }

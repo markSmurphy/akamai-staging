@@ -2,15 +2,37 @@
 
 ## [v2.0.0] - MMM DD<sup>th</sup> 2021
 
+### New Features
+
+This releases uses a different DNS library so that:
+
+* The lookup of multiple domains is *much* quicker due to DNS queries now being asynchronous.
+* The full `CNAME` chain can be recursed so that the Akamai domain is found no matter how deeply nested it is.
+* `akamai-staging` will now return a Staging IP address for the following Akamai domains:
+  * `edgekey.net`
+  * `edgesuite.net`
+  * `akamaiedge.net`
+* Redirecting output to a file now displays any errors in the console rather than have them written to the target file.
+  * This is because errors are now written to `stderr` to separate them from `stdout`.
+
 ### ⚠ BREAKING CHANGES
 
-* **node:** drop Node 10 support
+* Dropped **Node** 10 support.
+
+### Added
+
+* Added dependency `native-dns-multisocket`.
+* Added dependency `multimatch`.
 
 ### Changed
 
-* Removed dependency `supports-color`.
 * Updated dependency `debug` to version `4.3.2`.
 * Updated dependency `yargs` to version `17.0.1`.
+
+### Removed
+
+* Removed dependency `supports-color`.
+* Removed dependency `dns-sync`.
 
 ---
 
