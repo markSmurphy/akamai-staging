@@ -15,6 +15,9 @@ debug*
 staging.cmd
 staging.ps1
 
+# To Do notes
+todo.md
+
 # Screenshot images folder
 screenshots/*
 
