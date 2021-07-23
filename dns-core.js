@@ -18,7 +18,7 @@ function parseAnswer(answer, options) {
     }
 
     try {
-        let response;
+        let response = '';
         // Extract IP Address
         if ((options === null) || (options.getIpAddress)) {
             // Just get the IP address; i.e. the A record at the end.
@@ -32,11 +32,12 @@ function parseAnswer(answer, options) {
             for (let i = 0; i < answer.length; i++){
                 // Check if the answer element has a "data" property (which a CNAME record will have)
                 if(Object.prototype.hasOwnProperty.call(answer[i], 'data')){
+                    response += `${answer[i].name} --> ${answer[i].data}${EOL}`;
 
-                    response = response.concat(answer[i].name, ' --> ', answer[i].data, EOL);
                 // Check if the answer element has an "address" property (which an A record will have)
                 } else if (Object.prototype.hasOwnProperty.call(answer[i], 'address')) {
-                    response = response.concat(answer[i].name, ' --> ', answer[i].address, EOL);
+                    response += `${answer[i].name} --> ${answer[i].address}${EOL}`;
+
                 } else {
                    debug('Warning: There is an unhandled data structure in element [%s] in answer array: %O', i, answer);
                 }

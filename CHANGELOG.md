@@ -1,5 +1,15 @@
 # Changelog
 
+## [v2.0.1] - MMM DD<sup>th</sup> 2021
+
+### Changed
+
+* Fixed response object initialisation `NULL_POINTER` issue, reported by [deepscan.io](https://deepscan.io/).
+* Code improvements recommended by [Codacy](https://www.codacy.com/).
+* Performance improvements by deprecating the use of ~~`concat()`~~ and favour of `+=` for string concatenation.
+
+---
+
 ## [v2.0.0] - July 14<sup>th</sup> 2021
 
 ### New Features
