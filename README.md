@@ -2,6 +2,7 @@
 
 ![Version](https://img.shields.io/npm/v/akamai-staging.svg?style=plastic)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/77426eb3f96e4e8d9cc4048e4b13bc1e)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=MarkSMurphy/staging&amp;utm_campaign=Badge_Grade)
+[![DeepScan grade](https://deepscan.io/api/teams/11497/projects/14396/branches/266781/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11497&pid=14396&bid=266781)
 [![Known Vulnerabilities](https://snyk.io/test/npm/akamai-staging/badge.svg)](https://snyk.io/test/npm/akamai-staging)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/akamai-staging.svg?style=plastic)
 ![Downloads](https://img.shields.io/npm/dm/akamai-staging.svg?style=plastic)
@@ -131,7 +132,7 @@ This means that if you use the redirection approach [above](#redirecting-output-
 
 You can redirect them individually by using the notation `1>` to direct `stdout` and `2>` to redirect `stderr` somewhere else.
 
-*Note*: All errors are printed with a preceeding hash character `#`, which denotes a *comment* in the `hosts` file. So, if you wish, you could redirect both `stdout` and `stderr` to the target file without it compromising the `hosts` file structure.
+*Note*: All errors are printed with a preceding hash character `#`, which denotes a *comment* in the `hosts` file. So, if you wish, you could redirect both `stdout` and `stderr` to the target file without it compromising the `hosts` file structure.
 
 ```bash
 root@LinuxMint-VirtualBox:~$ sudo staging www.akamai.com >> /etc/hosts

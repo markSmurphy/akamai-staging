@@ -7,6 +7,13 @@
 * Fixed response object initialisation `NULL_POINTER` issue, reported by [deepscan.io](https://deepscan.io/).
 * Code improvements recommended by [Codacy](https://www.codacy.com/).
 * Performance improvements by deprecating the use of ~~`concat()`~~ and favour of `+=` for string concatenation.
+* Fixed a typo in `READme.md`.
+
+### Added
+
+* Included a [deepscan.io](https://deepscan.io/) badge in `README.md`.
+
+     [![DeepScan grade](https://deepscan.io/api/teams/11497/projects/14396/branches/266781/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11497&pid=14396&bid=266781)
 
 ---
 
