@@ -34,9 +34,7 @@ This utility aids that process by accepting one or more fully qualified domain n
 
 ## Installation
 
-```bash
-npm install -g akamai-staging
-```
+`npm install -g akamai-staging`
 
 ---
 
@@ -53,7 +51,7 @@ npm install -g akamai-staging
 `staging www.akamai.com`
 
 ```bash
-C:\>staging www.akamai.com
+C:\> staging www.akamai.com
 
 104.82.168.181 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 
@@ -68,7 +66,7 @@ If your front-end consists of multiple domains, you may need to point more than 
 `staging www.asos.com api.asos.com my.asos.com`
 
 ```bash
-C:\>staging www.asos.com api.asos.com my.asos.com
+C:\> staging www.asos.com api.asos.com my.asos.com
 
 23.50.57.68 www.asos.com                             #Akamai Staging variant of [snir.www.asos.com.v4.edgekey.net]
 23.50.57.240 api.asos.com                            #Akamai Staging variant of [snir.asos.com.v4.edgekey.net]
@@ -88,10 +86,11 @@ Why not redirect `stdout` to append the `hosts` file, seeing as you're going to 
 
 ⚠ Make sure you use a double greater-than redirect `>>` to *append* to the target file; using only one will replace the target file and nuke your current `hosts` file.
 
-```text
-C:\>staging.js www.akamai.com >> %systemroot%\system32\drivers\etc\hosts
+`C:\> staging www.akamai.com >> %systemroot%\system32\drivers\etc\hosts`
 
-C:\>type %systemroot%\system32\drivers\etc\hosts
+`C:\> type %systemroot%\system32\drivers\etc\hosts`
+
+```text
 # Copyright (c) 1993-2009 Microsoft Corp.
 #
 # This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
@@ -118,7 +117,7 @@ C:\>type %systemroot%\system32\drivers\etc\hosts
 
 23.195.136.39 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 
-C:\>▄
+
 ```
 
 #### Linux (as root)
@@ -134,11 +133,12 @@ You can redirect them individually by using the notation `1>` to direct `stdout`
 
 *Note*: All errors are printed with a preceding hash character `#`, which denotes a *comment* in the `hosts` file. So, if you wish, you could redirect both `stdout` and `stderr` to the target file without it compromising the `hosts` file structure.
 
+`$ sudo staging www.akamai.com >> /etc/hosts`
+
+`$ cat /etc/hosts`
+
 ```bash
-root@LinuxMint-VirtualBox:~$ sudo staging www.akamai.com >> /etc/hosts
-root@LinuxMint-VirtualBox:~$ cat /etc/hosts
 127.0.0.1    localhost
-127.0.1.1    LinuxMint-VirtualBox
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -146,9 +146,9 @@ fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
+
 23.195.136.39 www.akamai.com                         #Akamai Staging variant of [www.akamai.com.edgekey.net]
 
-root@LinuxMint-VirtualBox:~$ █
 ```
 
 ---
@@ -184,8 +184,6 @@ node akamai-staging [domain]
 ### Apex domains are not currently supported
 
 DNS standards do not allow a `CNAME` record in the apex (`A` or `AAAA` are the only allowed record types), and DNS providers get around this in proprietary ways.  The use of `dns.resolveCname` to get the initial alias of the hostname fails because it's not a `CNAME` record that's being returned.
-
-A resolution is being explored.
 
 ---
 

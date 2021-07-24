@@ -23,12 +23,14 @@
     "cdn",
     "staging",
     "ip",
+    "addres",
     "dns",
     "resolve",
     "domain",
     "fqdn",
     "cli",
-    "DNS"
+    "DNS",
+    "test"
   ],
   "author": "Mark Murphy",
   "license": "MIT",
