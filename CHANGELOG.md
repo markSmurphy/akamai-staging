@@ -6,7 +6,7 @@
 
 * Fixed response object initialisation `NULL_POINTER` issue, reported by [deepscan.io](https://deepscan.io/).
 * Code improvements recommended by [Codacy](https://www.codacy.com/).
-* Performance improvements by deprecating the use of ~~`concat()`~~ and favour of `+=` for string concatenation.
+* Performance improvements by deprecating the use of ~~`concat()`~~ in favour of `+=` for string concatenation.
 * Fixed a typo in `README.md`.
 
 ### Added
