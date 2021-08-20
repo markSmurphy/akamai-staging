@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/MarkSMurphy/akamai-staging#readme",
   "dependencies": {
-    "chalk": "^4.1.1",
+    "chalk": "^4.1.2",
     "debug": "^4.3.2",
     "multimatch": "^5.0.0",
     "native-dns-multisocket": "^0.7.0",
