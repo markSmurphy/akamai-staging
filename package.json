@@ -43,6 +43,6 @@
     "debug": "^4.3.2",
     "multimatch": "^5.0.0",
     "native-dns-multisocket": "^0.7.0",
-    "yargs": "^17.0.1"
+    "yargs": "^17.1.0"
   }
 }
