@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.2] - November 11<sup>th</sup> 2021
+
+### Changed
+
+* Updated dependency `chalk` to version `4.1.2`
+* Updated dependency `yargs` to version `17.2.1`
+
+---
+
 ## [v2.0.1] - July 24<sup>th</sup> 2021
 
 ### Changed
