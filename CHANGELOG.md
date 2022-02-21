@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.3] - February 21<sup>st</sup> 2022
+
+### Changed
+
+* Updated dependency `debug` to version `4.3.3`
+* Updated dependency `yargs` to version `17.3.1`
+
+---
+
 ## [v2.0.2] - November 11<sup>th</sup> 2021
 
 ### Changed
