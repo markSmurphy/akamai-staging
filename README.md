@@ -1,7 +1,7 @@
 # akamai-staging
 
 ![Version](https://img.shields.io/npm/v/akamai-staging.svg?style=plastic)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/77426eb3f96e4e8d9cc4048e4b13bc1e)](https://www.codacy.com?utm_source=bitbucket.org&amp;utm_medium=referral&amp;utm_content=MarkSMurphy/staging&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/26159c659fcf42b3be8e17b712ca28bf)](https://www.codacy.com/gh/markSmurphy/akamai-staging/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=markSmurphy/akamai-staging&amp;utm_campaign=Badge_Grade)
 [![DeepScan grade](https://deepscan.io/api/teams/11497/projects/14396/branches/266781/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=11497&pid=14396&bid=266781)
 [![Known Vulnerabilities](https://snyk.io/test/npm/akamai-staging/badge.svg)](https://snyk.io/test/npm/akamai-staging)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/akamai-staging.svg?style=plastic)
