@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.4] - December 16<sup>th</sup> 2022
+
+### Changed
+
+* Updated dependency `yargs` to version `17.6.2`
+* Refactored code to use [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+
+---
+
 ## [v2.0.3] - February 21<sup>st</sup> 2022
 
 ### Changed

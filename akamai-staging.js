@@ -84,7 +84,7 @@ function getStagingIPAddress(hostname){
                         let stagingIPAddress = address;
 
                         // Define the comment we'll annotate the hosts file entry with
-                        let comment = '#Akamai Staging variant of [' + alias +']';
+                        let comment = `#Akamai Staging variant of [${alias}]`;
 
 
                         // Workout a string buffer length (space between host file entry and comment) to tidy up comments' alignment
