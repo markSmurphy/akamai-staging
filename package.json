@@ -43,7 +43,7 @@
     "debug": "^4.3.3",
     "multimatch": "^5.0.0",
     "native-dns-multisocket": "^0.7.0",
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "rome": "^11.0.0"
